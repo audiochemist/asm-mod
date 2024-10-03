@@ -12,10 +12,8 @@ import java.io.IOException;
 public class ClassModifier {
 
     public static void main(String[] args) {
-        // Ruta donde están las clases extraídas
+        // Modificar Ruta donde están las clases extraídas
         String baseDir = "/Users/German/java-base-content/classes/java";
-
-        // Lista de clases y métodos a eliminar/Library/Java/JavaVirtualMachines/jdk-21.0.4.jdk/Contents/Home/bin/jlink --module-path /Users/German/custom-modules --add-modules java.base --output /Users/German/custom-jre
         String[][] targets = {
                 { baseDir + "/lang/System.class", "exit", "(I)V" },
                 { baseDir + "/lang/Runtime.class", "exec", "(Ljava/lang/String;)Ljava/lang/Process;" },
