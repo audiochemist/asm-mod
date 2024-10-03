@@ -1,0 +1,17 @@
+# Usa una imagen base mínima de Alpine Linux
+FROM alpine:latest
+
+# Instala las dependencias necesarias
+RUN apk add --no-cache bash
+
+# Crea un directorio en el contenedor para el JDK personalizado
+RUN mkdir /custom-jdk
+
+# Copia el JDK personalizado desde tu máquina local al contenedor
+COPY /Users/German/custom-runtime-image /custom-jdk
+
+# Establece las variables de entorno para que el contenedor utilice el JDK personalizado
+ENV PATH="/custom-jdk/bin:${PATH}"
+
+# Comando por defecto para el contenedor (bash interactivo)
+CMD ["bash"]
